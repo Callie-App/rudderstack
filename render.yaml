@@ -1,7 +1,7 @@
 databases:
   - name: rudderstack
     ipAllowList: []
-    plan: pro-4gb
+    plan: pro-4gb  # This is still valid; change to "basic-4gb" if you prefer the Basic tier for hobby use ($75/month, 4 GB RAM, 2 CPU)
 
 services:
   - type: web
@@ -10,7 +10,7 @@ services:
     dockerfilePath: ./backend/dockerfile
     dockerContext: ./backend
     healthCheckPath: /
-    plan: starter plus
+    plan: standard  # Changed from "starter plus" to a current valid plan
     envVars:
       - key: PORT
         value: 8080
@@ -54,7 +54,7 @@ services:
     name: rudderstack-transformer
     dockerfilePath: ./transformer/dockerfile
     dockerContext: ./transformer
-    plan: starter plus
+    plan: standard  # Changed from "starter plus" to a current valid plan
     envVars:
       - key: STATSD_SERVER_HOST
         fromService:
@@ -72,5 +72,4 @@ services:
     name: rudderstack-statsd
     dockerfilePath: ./statsd/dockerfile
     dockerContext: ./statsd
-    plan: starter
-
+    plan: starter  # This is still valid
